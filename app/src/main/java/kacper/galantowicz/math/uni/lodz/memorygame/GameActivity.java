@@ -57,14 +57,14 @@ public class GameActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     imageViews[finalIndexNumber].setImageResource(images[finalIndexNumber]);
-                    doStuff(imageViews[finalIndexNumber], finalIndexNumber);
+                    game(imageViews[finalIndexNumber], finalIndexNumber);
                 }
             });
         }
     }
 
     @TargetApi(Build.VERSION_CODES.P)
-    private void doStuff(ImageView iv, int card) {
+    private void game(ImageView iv, int card) {
         if (cardNumber == 1) {
             firstCard = cardsArray[card];
             if (firstCard > 10) {
@@ -89,13 +89,13 @@ public class GameActivity extends Activity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    equaling();
+                    comparisonOfCards();
                 }
             }, 1000);
         }
     }
 
-    private void equaling() {
+    private void comparisonOfCards() {
         if (firstCard == secondCard) {
             for (int i = 0; i < 12; i++) {
                 if (clickFirst == i) {
